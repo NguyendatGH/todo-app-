@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.main {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.container {
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.img {
+  width: 500px;
+  height: 500px;
+}
