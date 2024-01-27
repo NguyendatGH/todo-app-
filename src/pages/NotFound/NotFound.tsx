@@ -24,9 +24,7 @@ function NotFound() {
           <ColorButton
             variant="contained"
             className={styed.returnBtn}
-            sx={{
-              marginTop: "300px",
-            }}
+            // sx={{ marginBottom: "30px" }}
           >
             Go Back to Login
           </ColorButton>

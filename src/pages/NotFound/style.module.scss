@@ -12,11 +12,11 @@
   padding: 0 100px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
 }
 .img {
   width: 500px;
-  height: 500px;
+  height: auto;
 }

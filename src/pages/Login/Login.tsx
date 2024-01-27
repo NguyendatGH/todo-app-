@@ -51,18 +51,24 @@ function Login() {
   const handleLogin = async () => {
     try {
       await Validationschema.validate(inputValue, { abortEarly: false });
+      let isLoginSuccess: boolean = false;
       AccountList.map((Acc) => {
-        if (
-          inputValue.username === Acc.username &&
-          inputValue.password === Acc.password
-        ) {
-          setTimeout(handleToast, 0);
-          navigation("/home");
+        if (inputValue.username === Acc.username) {
+          if (inputValue.password === Acc.password) {
+            setTimeout(handleToast, 0);
+            isLoginSuccess = true;
+            navigation("/home");
+          } else {
+            toast.error("please check again your password");
+          }
+        }
+        if (isLoginSuccess === false) {
+          toast.error("please check your username");
+          isLoginSuccess = true;
         }
       });
     } catch (error) {
-      console.log("error", error);
-      toast.error("error");
+      toast.error("invalid");
       const temp = {
         username: false,
         password: false,
@@ -98,6 +104,7 @@ function Login() {
               onChange={(e) =>
                 setInputValue({ ...inputValue, username: e.target.value })
               }
+              autoFocus={true}
             />
             <TextField
               error={validation.password}
@@ -124,8 +131,8 @@ function Login() {
             >
               Don't have account?
             </Typography>
-            <Link to={"/register"} style={{ width: "100%" }}>
-              <Button variant="outlined" fullWidth sx={{ mt: 2 }}>
+            <Link to={"/register"} style={{ width: "100%", height: "auto" }}>
+              <Button variant="outlined" fullWidth>
                 Register
               </Button>
             </Link>
