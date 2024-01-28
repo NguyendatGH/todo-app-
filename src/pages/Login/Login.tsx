@@ -36,8 +36,6 @@ interface validation {
 }
 
 function Login() {
-  // console.log("list ", AccountList);
-
   const [inputValue, setInputValue] = useState<inputValue>({
     username: "",
     password: "",
@@ -68,7 +66,7 @@ function Login() {
         }
       });
     } catch (error) {
-      toast.error("invalid");
+      toast.error("please enter your username and your password");
       const temp = {
         username: false,
         password: false,
